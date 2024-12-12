@@ -1,0 +1,108 @@
+{
+  "name": "MODBUS-RTU",
+  "type": 1,
+  "icon": "hub",
+  "class_name": "modbus-rtu",
+  "module": "modbus-rtu",
+  "cloud": false,
+  "support_autoupdate": false,
+  "mac_address": false,
+  "capabilities": [],
+  "sort_index": 4,
+  "sub_devices": [
+    {
+      "class_name": "modbus-subdevice",
+      "name": "MODBUS-RTU SubDevice",
+      "dynamic_capabilities": true,
+      "mac_address": false,
+      "support_autoupdate": true,
+      "autoupdate_interval": 500,
+      "selectable": true,
+      "connect_config": true,
+      "type": 39,
+      "sort_index": 1,
+      "settings": [
+        {
+          "key": "identifier",
+          "name": "Slave id of the device",
+          "type": "text"
+        },
+        {
+          "key": "template",
+          "name": "Template",
+          "type": "select",
+          "items": "templates-modbus"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "key": "port",
+      "name": "Port",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "baud_rate",
+      "name": "Baud rate",
+      "type": "select",
+      "items": [
+        {
+          "id": 1200,
+          "title": "1200"
+        },
+        {
+          "id": 2400,
+          "title": "2400"
+        },
+        {
+          "id": 4800,
+          "title": "4800"
+        },
+        {
+          "id": 9600,
+          "title": "9600"
+        },
+        {
+          "id": 19200,
+          "title": "19200"
+        },
+        {
+          "id": 38400,
+          "title": "38400"
+        },
+        {
+          "id": 57600,
+          "title": "57600"
+        },
+        {
+          "id": 115200,
+          "title": "115200"
+        }
+      ],
+      "defaultValue": 9600
+    },
+    {
+      "key": "timeout",
+      "name": "Response timeout (ms)",
+      "type": "text",
+      "defaultValue": 500
+    },
+    {
+      "key": "poll_interval",
+      "name": "Desired poll interval (ms)",
+      "description": "This option specifies the desired interval between two consecutive polls of each channel (or total duration of the poll cycle). Writes are not affected by this setting and are performed as soon as possible",
+      "type": "text",
+      "defaultValue": 10
+    },
+    {
+      "key": "disable_scan_sub_devices",
+      "name": "Disable auto scan on startup",
+      "type": "checkbox"
+    }
+  ],
+  "dependencies": {
+    "modbus-serial": "^7.8.1"
+  }
+}
